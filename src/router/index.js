@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Mispropiedades from '../views/MispropiedadesView.vue'
+import Login from '../views/LoginView.vue'
+import Registro from '../views/RegistroView.vue'
+import Miperfil from '../views/MiperfilView.vue'
 
 const routes = [
   {
@@ -10,22 +14,22 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: '/mispropiedades',
     name: 'mispropiedades',
-    component: () => import(/* webpackChunkName: "about" */ '../views/MispropiedesView.vue')
+    component: () => import('../views/MispropiedadesView.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/LoginView.vue')
+    component: () => import('../views/LoginView.vue')
   },
   {
     path: '/miperfil',
     name: 'miperfil',
-    component: () => import(/* webpackChunkName: "miperfil" */ '../views/MiperfilView.vue')
+    component: () => import('../views/MiperfilView.vue')
   },
   {
     path: '/registro',
