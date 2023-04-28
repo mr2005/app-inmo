@@ -17,18 +17,14 @@
         <v-table fixed-header class="elevation-3">
             <thead>
             <tr>
-                <th class="text-center">ID</th>
-                <th class="text-center">Titulo</th>
+                <th class="text-center">Título</th>
+                <th class="text-center">Descripción</th>
             </tr>
             </thead>
         <tbody>
             <tr v-for="propiedad in propiedades" :key="propiedad.id">
-                <td>{{propiedad.id}}</td>
                 <td>{{propiedad.titulo}}</td>
-                <td>
-                    <v-btn :to="{name:'EditarPropiedad', params:{id:propiedad.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
-                    <v-btn @click.stop="dialog=true" @click="id=propiedad.id" fab small color="error"><v-icon>mdi-delete</v-icon></v-btn>
-                </td>
+                <td>{{propiedad.descripcion}}</td>
             </tr>
          </tbody>   
         </v-table>
@@ -46,11 +42,7 @@ export default {
     },
     data(){
         return{            
-            dialog:false,
-            propiedades:null,
-            id:null,
-            snackbar:false,
-            textsnack:'¡Registro Eliminado!'
+            propiedades: [],
         }
     },
     methods:{
