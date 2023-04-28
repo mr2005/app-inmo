@@ -7,7 +7,7 @@
         </v-row>
         <v-row>
             <v-col class="mb-1">
-                <v-btn class="mx-2" fab dark color="primary">
+                <v-btn to="CrearPropiedad" class="mx-2" fab dark color="primary">
                     <v-icon dark size="large">mdi-home-plus</v-icon>
                 </v-btn>
             </v-col>
@@ -19,12 +19,17 @@
             <tr>
                 <th class="text-center">Título</th>
                 <th class="text-center">Descripción</th>
+                <th class="text-center">Acciones</th>
             </tr>
             </thead>
         <tbody>
             <tr v-for="propiedad in propiedades" :key="propiedad.id">
                 <td>{{propiedad.titulo}}</td>
                 <td>{{propiedad.descripcion}}</td>
+                <td>
+                    <v-icon small class="mr-2" @click="editarPropiedad(propiedad.id)">mdi-pencil</v-icon>
+                    <v-icon small @click="borrarPropiedad(propiedad.id)">mdi-delete</v-icon>
+                </td>
             </tr>
          </tbody>   
         </v-table>

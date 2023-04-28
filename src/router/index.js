@@ -4,6 +4,7 @@ import Mispropiedades from '../views/MispropiedadesView.vue'
 import Login from '../views/LoginView.vue'
 import Registro from '../views/RegistroView.vue'
 import Miperfil from '../views/MiperfilView.vue'
+import CrearPropiedad from '../views/CrearPropiedadView.vue'
 
 const routes = [
   {
@@ -35,7 +36,7 @@ const routes = [
     path: '/registro',
     name: 'registro',
     component: () => import(/* webpackChunkName: "registro" */ '../views/RegistroView.vue')
-  }
+  },
 
 ]
 
