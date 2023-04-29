@@ -20,7 +20,7 @@
       HelloWorld,
       Menu,
       ListarPropiedades,
-      CrearPropiedad
+      CrearPropiedad,
     },
 
   });
