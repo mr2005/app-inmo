@@ -24,7 +24,7 @@ const routes = [
   },
   {
     path: '/editar/:id',
-    name: 'editarpropiedad',
+    name: 'EditarPropiedad',
     component: () => import('../views/EditarPropiedadView.vue')
   },
   {

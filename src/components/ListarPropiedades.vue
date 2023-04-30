@@ -30,9 +30,8 @@
                 <td>{{propiedad.descripcion}}</td>
                 <td>
                     <!-- <v-icon small class="mr-2" @click="editarPropiedad(propiedad.id)">mdi-pencil</v-icon> -->
-                    <router-link to="{name:'editarArticulo', params:{id:propiedad.id}}">
-                        <v-btn  small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
-                    </router-link>
+                    
+                    <v-btn to="{name='EditarPropiedad', params:{id:propiedad.id} }" small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
                     <v-btn @click.stop="dialog=true" @click="id=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
                     <!-- <v-icon small @click.stop="dialog=true" @click="id=propiedades.id">mdi-delete</v-icon>  -->
                     <!-- <BorrarPropiedad /> -->
@@ -65,8 +64,8 @@
 
 <script>
 import CrearPropiedad from '../components/CrearPropiedad.vue';
-import BorrarPropiedad from '../components/BorrarPropiedad.vue';
-import EditarPropiedad from '@/views/EditarPropiedadView.vue';
+import BorrarPropiedad from './BorrarPropiedad.vue';
+import EditarPropiedad from '@/components/EditarPropiedad.vue';
 import axios from 'axios';
 
 export default {
@@ -75,6 +74,8 @@ export default {
     components: { 
       CrearPropiedad,
       BorrarPropiedad,
+      EditarPropiedad,
+      
     }, 
     mounted(){
         this.obtenerPropiedades();
