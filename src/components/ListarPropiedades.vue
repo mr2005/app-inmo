@@ -30,8 +30,10 @@
                 <td>{{propiedad.descripcion}}</td>
                 <td>
                     <!-- <v-icon small class="mr-2" @click="editarPropiedad(propiedad.id)">mdi-pencil</v-icon> -->
-                    <!-- <v-btn :to="{name:'editarArticulo', params:{id:articulo.id}}" fab small color="primary"><v-icon>mdi-pencil</v-icon></v-btn> -->
-                    <v-btn @click.stop="dialog=true" @click="id=propiedad.id" fab small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
+                    <router-link to="{name:'editarArticulo', params:{id:propiedad.id}}">
+                        <v-btn  small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
+                    </router-link>
+                    <v-btn @click.stop="dialog=true" @click="item=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
                     <!-- <v-icon small @click.stop="dialog=true" @click="id=propiedades.id">mdi-delete</v-icon>  -->
                     <!-- <BorrarPropiedad /> -->
                 </td>
@@ -48,7 +50,7 @@
             <v-card-actions>
             <v-spacer></v-spacer>
                 <v-btn @click="dialog = false">Cancelar</v-btn>
-                <v-btn @click="confirmarBorrado(id)" color="error">Aceptar</v-btn>
+                <v-btn @click="confirmarBorrado(item)" color="error">Aceptar</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -64,6 +66,7 @@
 <script>
 import CrearPropiedad from '../components/CrearPropiedad.vue';
 import BorrarPropiedad from '../components/BorrarPropiedad.vue';
+import EditarPropiedad from '@/views/EditarPropiedadView.vue';
 import axios from 'axios';
 
 export default {
@@ -80,6 +83,7 @@ export default {
         return{            
             propiedades: [],
             dialog: false,
+            item:'null',
             snackbar:false,
             textsnack:'¡Propiedad Eliminada!'
             }
@@ -109,6 +113,12 @@ export default {
                 console.log(error);
             })
         },
+
+        editarPropiedad(id) {
+            // Aquí podrías guardar el registro a editar en una propiedad de datos y mostrar un formulario de edición
+            this.editingItem = item
+            this.showEditForm = true
+        }
 
     }
 }

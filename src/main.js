@@ -14,7 +14,7 @@ import VueAxios from 'vue-axios'
 
 
 // Agregamos la URL base de nuestra API
-axios.defaults.baseURL = 'http://localhost:3000/api/';
+// axios.defaults.baseURL = 'http://localhost:3000/api/';
 
 
 loadFonts()
