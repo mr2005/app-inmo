@@ -15,17 +15,17 @@
             <v-container>
               <v-row>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field v-model="propiedad.titulo" label="Titulo descriptivo*" hint="Titulo de la propiedad" required></v-text-field>
+                  <v-text-field v-model="form.titulo" label="Titulo descriptivo*" hint="Titulo de la propiedad" required></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field v-model="propiedad.precio" label="Precio de venta*" required></v-text-field>
+                  <v-text-field v-model="form.precio" label="Precio de venta*" required></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-text-field v-model="propiedad.ano" label="Año de construción"></v-text-field>
+                  <v-text-field v-model="form.ano" label="Año de construción"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
                   <v-autocomplete
-                  v-model="propiedad.categoria"
+                  v-model="form.categoria"
                   clearable
                   label="Categoría*"
                   :items="['Casa', 'Piso', 'Garaje', 'Terreno']">
@@ -35,7 +35,7 @@
                 </v-col>
                 
                 <v-col sm="12" md="8">
-                  <v-text-field v-model="propiedad.descripcion" label="Descripción de la propiedad" hint="Información descriptiva de la propiedad" persistent-hint></v-text-field>
+                  <v-text-field v-model="form.descripcion" label="Descripción de la propiedad" hint="Información descriptiva de la propiedad" persistent-hint></v-text-field>
                 </v-col>
             
               
@@ -50,40 +50,53 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
+
+           <!-- componente snackbar para mostrar mensaje de eliminación -->
+     <v-snackbar v-model="snackbarOK" color="success"> {{textsnackOK}}
+        <template v-slot:action="{attrs}">
+            <v-btn text v-bind="attrs" @click="snackbarOK = false">Cerrar</v-btn>
+        </template>
+    </v-snackbar> 
   </v-row>
 </template>
 
 <script>
+import axios from 'axios';
+
   export default {
     data: () => ({
+      
       dialog: false,
+      snackbarOK:false,
+      textsnackOK:'¡Propiedad agregada correctamente!',
 
-      propiedad: {
-              titulo: '',
-              precio: '',
-              ano: '',
-              categoria: '',
-              descripcion: '',
-  }
+
+      form: {
+        titulo: '',
+        precio: '',
+        ano: '',
+        categoria: '',
+        descripcion: '',
+      }
 }),
+ 
+
+methods:{
     
-    agregarPropiedad() {
-      var router = this.$router;
-        const formData = new FormData();
-        formData.append('titulo',this.propiedad.titulo);
-        formData.append('precio',this.propiedad.precio);
-        formData.append('ano',this.propiedad.ano);
-        formData.append('categoria',this.propiedad.categoria);
-        formData.append('descripcion',this.propiedad.descripcion);
-        axios.post('http://localhost:3000/api/propiedades',formData)
-        .then(()=>{
-            router.push('/propiedades');
-        })
-        .catch(function(error){
-    console.log(error);
-        });
+    agregarPropiedad() {      
+            axios.post("http://localhost:3000/api/propiedades",this.form)
+            .then(data =>{
+                console.log(data);
+                this.snackbarOK = true
+                this.dialog = false
+            })
+            .catch( error =>{
+                console.log(e);
+                alert('Ha ocurrido un error al crear el registro.')
+                this.dialog = false
+            })
 
       },
-
-  }
-</script>
+    }
+  };
+  </script>
