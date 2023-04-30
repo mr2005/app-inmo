@@ -33,7 +33,7 @@
                     <router-link to="{name:'editarArticulo', params:{id:propiedad.id}}">
                         <v-btn  small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
                     </router-link>
-                    <v-btn @click.stop="dialog=true" @click="item=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
+                    <v-btn @click.stop="dialog=true" @click="id=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
                     <!-- <v-icon small @click.stop="dialog=true" @click="id=propiedades.id">mdi-delete</v-icon>  -->
                     <!-- <BorrarPropiedad /> -->
                 </td>
@@ -50,12 +50,12 @@
             <v-card-actions>
             <v-spacer></v-spacer>
                 <v-btn @click="dialog = false">Cancelar</v-btn>
-                <v-btn @click="confirmarBorrado(item)" color="error">Aceptar</v-btn>
+                <v-btn @click="confirmarBorrado(id)" color="error">Aceptar</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
      <!-- componente snackbar para mostrar mensaje de eliminación -->
-     <v-snackbar v-model="snackbar" color="success"> {{textsnack}}
+     <v-snackbar v-model="snackbarDELETE" color="success"> {{textsnackDELETE}}
         <template v-slot:action="{attrs}">
             <v-btn text v-bind="attrs" @click="snackbar = false">Cerrar</v-btn>
         </template>
@@ -83,9 +83,9 @@ export default {
         return{            
             propiedades: [],
             dialog: false,
-            item:'null',
-            snackbar:false,
-            textsnack:'¡Propiedad Eliminada!'
+            id:'null',
+            snackbarDELETE:false,
+            textsnackDELETE:'¡Propiedad Eliminada!'
             }
               
         }
@@ -103,11 +103,11 @@ export default {
 
         },
         confirmarBorrado(id){
-          axios.delete('http://localhost:3000/api/propiedades/${id}')
+          axios.delete( `http://localhost:3000/api/propiedades/${id}`)
             .then(r => {
               this.obtenerPropiedades();
               this.dialog = false;
-              this.snackbar = true
+              this.snackbarDELETE = true
             })
             .catch(function(error){
                 console.log(error);
