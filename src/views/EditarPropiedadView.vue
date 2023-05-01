@@ -1,7 +1,7 @@
 <template>
     <HelloWorld />
     <Menu />
-    <h1>Edición de propiedad</h1>
+    <EditarPropiedad />
 
   </template>
   
@@ -11,7 +11,7 @@
   // Components
   import HelloWorld from '../components/HelloWorld.vue';
   import Menu from '../components/Menu.vue';
-  import EditarPropiedadView from '@/views/EditarPropiedadView.vue';
+  import EditarPropiedad from '../components/EditarPropiedad.vue';
   
   export default defineComponent({
     name: 'EditarPropiedadView',
@@ -19,7 +19,7 @@
     components: {
       HelloWorld,
       Menu,
-      EditarPropiedadView,
+      EditarPropiedad,
   
     },
   });

@@ -31,7 +31,8 @@
                 <td>
                     <!-- <v-icon small class="mr-2" @click="editarPropiedad(propiedad.id)">mdi-pencil</v-icon> -->
                     
-                    <v-btn to="{name='EditarPropiedad', params:{id:propiedad.id} }" small color="primary"><v-icon>mdi-pencil</v-icon></v-btn>
+                    <!-- <v-btn to="{name='EditarPropiedad', params:{id:propiedad.id} }" small color="primary"><v-icon>mdi-pencil</v-icon></v-btn> -->
+                    <v-btn small color="primary" @click.stop="editarPropiedad(propiedad.id)"><v-icon small>mdi-pencil</v-icon></v-btn>
                     <v-btn @click.stop="dialog=true" @click="id=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
                     <!-- <v-icon small @click.stop="dialog=true" @click="id=propiedades.id">mdi-delete</v-icon>  -->
                     <!-- <BorrarPropiedad /> -->
@@ -116,9 +117,9 @@ export default {
         },
 
         editarPropiedad(id) {
-            // Aquí podrías guardar el registro a editar en una propiedad de datos y mostrar un formulario de edición
-            this.editingItem = item
-            this.showEditForm = true
+            {
+            this.$router.push({ path: `/editar/${id}` });
+    }
         }
 
     }
