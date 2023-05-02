@@ -23,6 +23,11 @@ const routes = [
     component: () => import('../views/MispropiedadesView.vue')
   },
   {
+    path: '/propiedad/:id',
+    name: 'propiedad',
+    component: () => import('../views/PropiedadView.vue')
+  },
+  {
     path: '/editar/:id',
     name: 'EditarPropiedad',
     component: () => import('../views/EditarPropiedadView.vue')
