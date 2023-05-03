@@ -33,8 +33,12 @@
                 </v-autocomplete>
 
                 </v-col>
-                
+
                 <v-col sm="12" md="8">
+                  <v-text-field v-model="form.direccion" label="Dirección de la propiedad" hint="Ubicación de la propiedad" persistent-hint></v-text-field>
+                </v-col>
+                
+                <v-col cols="12">
                   <v-text-field v-model="form.descripcion" label="Descripción de la propiedad" hint="Información descriptiva de la propiedad" persistent-hint></v-text-field>
                 </v-col>
             
@@ -76,6 +80,7 @@ import axios from 'axios';
         precio: '',
         ano: '',
         categoria: '',
+        direccion: '',
         descripcion: '',
       }
 }),
