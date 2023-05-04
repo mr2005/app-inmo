@@ -32,7 +32,7 @@
                     <!-- <v-icon small class="mr-2" @click="editarPropiedad(propiedad.id)">mdi-pencil</v-icon> -->
                     
                     <!-- <v-btn to="{name='EditarPropiedad', params:{id:propiedad.id} }" small color="primary"><v-icon>mdi-pencil</v-icon></v-btn> -->
-                    <v-btn small color="primary" @click.stop="dialogedit=true" @click="id=propiedad.id,titulo=propiedad.titulo,precio=propiedad.precio,ano=propiedad.ano,categoria=propiedad.categoria,descripcion=propiedad.descripcion"><v-icon small>mdi-pencil</v-icon></v-btn>
+                    <v-btn small color="primary" @click.stop="dialogedit=true" @click="id=propiedad.id,titulo=propiedad.titulo,precio=propiedad.precio,ano=propiedad.ano,categoria=propiedad.categoria,direccion=propiedad.direccion,descripcion=propiedad.descripcion"><v-icon small>mdi-pencil</v-icon></v-btn>
                     <!-- <v-btn small color="primary" @click.stop="editarPropiedad(propiedad.id)"><v-icon small>mdi-pencil</v-icon></v-btn> -->
 
                     <v-btn @click.stop="dialog=true" @click="id=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
@@ -68,6 +68,9 @@
                   <v-autocomplete v-model="categoria" label="Categoría*" :items="['Casa', 'Piso', 'Garaje', 'Terreno']"></v-autocomplete>
                 </v-col>
                 <v-col sm="12" md="8">
+                  <v-text-field v-model="direccion" label="Dirección de la propiedad" hint="Ubicación de la propiedad" persistent-hint></v-text-field>
+                </v-col>
+                <v-col cols="12">
                   <v-text-field v-model="descripcion" label="Descripción de la propiedad" hint="Información descriptiva de la propiedad" persistent-hint></v-text-field>
                 </v-col>           
               </v-row>
@@ -136,7 +139,7 @@ export default {
     ,
     methods:{
         obtenerPropiedades(){
-            axios.get('http://myapirestful-production.up.railway.app/api/propiedades')
+            axios.get('http://localhost:3000/api/propiedades')
             .then(r => {
                 this.propiedades = r.data;
                 console.log(this.propiedades);
@@ -147,7 +150,7 @@ export default {
 
         },
         confirmarBorrado(id){
-          axios.delete( `http://myapirestful-production.up.railway.app/api/propiedades/${id}`)
+          axios.delete( `http://localhost:3000/api/propiedades/${id}`)
             .then(r => {
               this.obtenerPropiedades();
               this.dialog = false;
@@ -159,7 +162,8 @@ export default {
         },
 
         editarPropiedad(id){
-            axios.put( `http://myapirestful-production.up.railway.app/api/propiedades/${id}`,this.titulo)
+            var nuevaprop={titulo:this.titulo,precio:this.precio,ano:this.ano,categoria:this.categoria,direccion:this.direccion,descripcion:this.descripcion}
+            axios.put( `http://localhost:3000/api/propiedades/${id}`,nuevaprop)
             .then(r => {
               this.dialogedit = false;
               this.obtenerPropiedades();

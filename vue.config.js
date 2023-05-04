@@ -6,8 +6,10 @@ module.exports = defineConfig({
     vuetify: {
 			// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
 		},
-    devServer: {
-      disableHostCheck: true
-    }
+
   }
+
+  devServer: {
+    port: 3001
+    }
 })

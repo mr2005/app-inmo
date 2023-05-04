@@ -89,7 +89,7 @@ import axios from 'axios';
 methods:{
     
     agregarPropiedad() {      
-            axios.post("http://myapirestful-production.up.railway.app/api/propiedades",this.form)
+            axios.post("http://localhost:3000/api/propiedades",this.form)
             .then(data =>{
                 console.log(data);
                 this.snackbarOK = true
