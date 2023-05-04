@@ -1,7 +1,11 @@
 <template>
     <HelloWorld />
     <Menu />
-    <div><h1>Mi Perfil</h1></div>
+    <v-row class="text-center">
+          <v-col class="mb-4">
+              <h1>Perfil de usuario</h1>
+          </v-col>
+        </v-row>
   </template>
   
   <script>

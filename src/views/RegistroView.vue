@@ -1,5 +1,6 @@
 <template>
-    <v-sheet width="300" class="mx-auto">
+      <v-sheet width="300" class="mx-auto">
+              <h2 class="mt-12 mb-4 text-center">Registro usuario</h2>
       <v-form @submit.prevent>
         <v-text-field
           v-model="nombre"

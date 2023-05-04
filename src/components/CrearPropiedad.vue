@@ -66,6 +66,7 @@
 
 <script>
 import axios from 'axios';
+import ListarPropiedadesVue from './ListarPropiedades.vue';
 
   export default {
     data: () => ({
@@ -94,6 +95,8 @@ methods:{
                 console.log(data);
                 this.snackbarOK = true
                 this.dialog = false
+                
+                
             })
             .catch( error =>{
                 console.log(e);
