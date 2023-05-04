@@ -42,7 +42,7 @@ export default{
 
   methods: {
     getPropiedades(){
-      axios.get('http://localhost:3000/api/propiedades')
+      axios.get('https://myapirestful-production.up.railway.app/api/propiedades')
       .then(r => {
       this.propiedadesall = r.data;
       console.log(this.propiedades);

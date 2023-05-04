@@ -174,11 +174,6 @@ export default {
             })
 
         }
-    //     editarPropiedad(id) {
-    //         {
-    //         this.$router.push({ path: `/editar/${id}` });
-    // }
-    //     }
 
     }
 }
