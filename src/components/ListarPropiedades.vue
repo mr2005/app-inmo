@@ -136,7 +136,7 @@ export default {
     ,
     methods:{
         obtenerPropiedades(){
-            axios.get('http://localhost:3000/api/propiedades')
+            axios.get('http://myapirestful-production.up.railway.app/api/propiedades')
             .then(r => {
                 this.propiedades = r.data;
                 console.log(this.propiedades);
@@ -147,7 +147,7 @@ export default {
 
         },
         confirmarBorrado(id){
-          axios.delete( `http://localhost:3000/api/propiedades/${id}`)
+          axios.delete( `http://myapirestful-production.up.railway.app/api/propiedades/${id}`)
             .then(r => {
               this.obtenerPropiedades();
               this.dialog = false;
@@ -159,7 +159,7 @@ export default {
         },
 
         editarPropiedad(id){
-            axios.put( `http://localhost:3000/api/propiedades/${id}`,this.titulo)
+            axios.put( `http://myapirestful-production.up.railway.app/api/propiedades/${id}`,this.titulo)
             .then(r => {
               this.dialogedit = false;
               this.obtenerPropiedades();
