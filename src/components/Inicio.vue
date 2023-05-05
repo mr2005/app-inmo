@@ -60,11 +60,9 @@
 <script>
 
 import axios from 'axios';
-import DetallePropiedad from '../components/DetallePropiedad.vue';
 
 
 export default{
-  components: { DetallePropiedad },
   name: 'Inicio',
   data(){
     return{            

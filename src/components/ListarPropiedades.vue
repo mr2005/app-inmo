@@ -29,15 +29,8 @@
                 <td>{{propiedad.ano}}</td>
                 <td>{{propiedad.direccion}}</td>
                 <td>
-                    <!-- <v-icon small class="mr-2" @click="editarPropiedad(propiedad.id)">mdi-pencil</v-icon> -->
-                    
-                    <!-- <v-btn to="{name='EditarPropiedad', params:{id:propiedad.id} }" small color="primary"><v-icon>mdi-pencil</v-icon></v-btn> -->
-                    <v-btn small color="primary" @click.stop="dialogedit=true" @click="id=propiedad.id,titulo=propiedad.titulo,precio=propiedad.precio,ano=propiedad.ano,categoria=propiedad.categoria,direccion=propiedad.direccion,descripcion=propiedad.descripcion"><v-icon small>mdi-pencil</v-icon></v-btn>
-                    <!-- <v-btn small color="primary" @click.stop="editarPropiedad(propiedad.id)"><v-icon small>mdi-pencil</v-icon></v-btn> -->
-
-                    <v-btn @click.stop="dialog=true" @click="id=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>
-                    <!-- <v-icon small @click.stop="dialog=true" @click="id=propiedades.id">mdi-delete</v-icon>  -->
-                    <!-- <BorrarPropiedad /> -->
+                  <v-btn small color="primary" @click.stop="dialogedit=true" @click="id=propiedad.id,titulo=propiedad.titulo,precio=propiedad.precio,ano=propiedad.ano,categoria=propiedad.categoria,direccion=propiedad.direccion,descripcion=propiedad.descripcion"><v-icon small>mdi-pencil</v-icon></v-btn>
+                  <v-btn @click.stop="dialog=true" @click="id=propiedad.id" small color="error"><v-icon small>mdi-delete</v-icon></v-btn>         
                 </td>
             </tr>
          </tbody>   
@@ -108,18 +101,13 @@
 <script>
 import { triggerRef } from 'vue';
 import CrearPropiedad from '../components/CrearPropiedad.vue';
-import BorrarPropiedad from './BorrarPropiedad.vue';
-import EditarPropiedad from '@/components/EditarPropiedad.vue';
 import axios from 'axios';
 
 export default {
    
     name:'ListarPropiedades',
     components: { 
-      CrearPropiedad,
-      BorrarPropiedad,
-      EditarPropiedad,
-      
+      CrearPropiedad,      
     }, 
     mounted(){
         this.obtenerPropiedades();

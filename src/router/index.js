@@ -11,21 +11,21 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
-  },
+  // {
+  //   path: '/about',
+  //   name: 'about',
+  //   component: () => import('../views/AboutView.vue')
+  // },
   {
     path: '/mispropiedades',
     name: 'mispropiedades',
     component: () => import('../views/MispropiedadesView.vue')
   },
-  {
-    path: '/propiedad/:id',
-    name: 'propiedad',
-    component: () => import('../views/PropiedadView.vue')
-  },
+  // {
+  //   path: '/propiedad/:id',
+  //   name: 'propiedad',
+  //   component: () => import('../views/PropiedadView.vue')
+  // },
   // {
   //   path: '/editar/:id',
   //   name: 'EditarPropiedad',
