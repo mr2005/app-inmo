@@ -93,10 +93,8 @@ methods:{
             axios.post("https://myapirestful-production.up.railway.app/api/propiedades",this.form)
             .then(data =>{
                 console.log(data);
-                this.snackbarOK = true
-                this.dialog = false
-                
-                
+                this.snackbarOK = true;
+                this.dialog = false;             
             })
             .catch( error =>{
                 console.log(e);
