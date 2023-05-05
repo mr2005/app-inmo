@@ -26,11 +26,11 @@ const routes = [
     name: 'propiedad',
     component: () => import('../views/PropiedadView.vue')
   },
-  {
-    path: '/editar/:id',
-    name: 'EditarPropiedad',
-    component: () => import('../views/EditarPropiedadView.vue')
-  },
+  // {
+  //   path: '/editar/:id',
+  //   name: 'EditarPropiedad',
+  //   component: () => import('../views/EditarPropiedadView.vue')
+  // },
   {
     path: '/login',
     name: 'login',

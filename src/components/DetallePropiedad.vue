@@ -10,8 +10,7 @@
           <v-btn
             color="primary"
             dark
-            v-bind="props" 
-            @click="id=propiedad.id"
+            v-bind="props"
                       >
             Open Dialog
           </v-btn>
@@ -28,7 +27,7 @@
             >
               <v-icon>mdi-close</v-icon>
             </v-btn>
-            <v-toolbar-title>Detalle de la propiedad {{ id }}</v-toolbar-title>
+            <v-toolbar-title>Detalle de la propiedad es {{ $route.params.id }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <v-btn
@@ -43,7 +42,7 @@
             lines="two"
             subheader
           >
-            <v-list-subheader>User Controls</v-list-subheader>
+            <v-list-subheader>User Controls {{ $route.params.id }}</v-list-subheader>
             <v-list-item title="Content filtering" subtitle="Set the content filtering level to restrict apps that can be downloaded"></v-list-item>
             <v-list-item title="Password" subtitle="Require password for purchase or use password to restrict purchase"></v-list-item>
           </v-list>

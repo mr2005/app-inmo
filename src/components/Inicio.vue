@@ -26,15 +26,33 @@
               <p>Dirección: {{ propiedad.direccion }}</p>
               <p align="center"><v-chip class="ma-2" align="center" color="secundary">{{propiedad.categoria}}</v-chip></p>
             </v-card-text>
-            <v-card-actions>
+            <v-card-actions >
             <v-btn color="primary" text @click="verDetalles(propiedad.id)">
               Ver detalles
             </v-btn>
-            <DetallePropiedad />
           </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
+    <!-- ventana de diálogo para EDITAR propiedades -->
+    <v-dialog v-model="dialogdetalles" max-width="1024">
+        <v-card>
+        <v-card-title>
+          <span class="text-h5">Detalles de la propiedad</span>
+        </v-card-title>
+        <v-list lines="two" subheader>
+          <v-list-subheader>Aqui se mostrará todo el contenido detallado de la propiedad</v-list-subheader>
+          <v-list-item title="Caracteristicas" subtitle="Detalle de la propiedad seleccionada"></v-list-item>
+          <v-list-item title="Precio" subtitle="Coste de la propiedad"></v-list-item>
+          <v-spacer></v-spacer>
+          <v-list-item title="Contacto" subtitle="Contacto con el propietario"></v-list-item>
+        </v-list>
+        <v-card-actions>
+            <v-spacer></v-spacer>
+                <v-btn @click="dialogdetalles = false">Cerrar</v-btn>
+            </v-card-actions>
+                </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -52,6 +70,7 @@ export default{
     return{            
       propiedadesall: [],
       id:'null',
+      dialogdetalles:false,
       tags: [
         'Casa',
         'Piso',
@@ -77,7 +96,8 @@ export default{
       })
     },
     verDetalles(id) {
-            this.$router.push({ path: `/propiedad/${id}` });
+            //this.$router.push({ path: `/propiedad/${id}` });
+      this.dialogdetalles = true;
     }
   
   },

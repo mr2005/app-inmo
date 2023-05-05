@@ -1,7 +1,7 @@
 <template>
     <HelloWorld />
     <Menu />
-    <EditarPropiedad />
+    
 
   </template>
   
