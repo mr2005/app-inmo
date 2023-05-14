@@ -7,15 +7,11 @@ import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 
 //import * as Vue from 'vue' // in Vue 3
-
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-
-
 // Agregamos la URL base de nuestra API
 // axios.defaults.baseURL = 'http://localhost:3000/api/';
-
 
 loadFonts()
 
